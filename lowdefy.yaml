@@ -14,6 +14,18 @@ connections:
       spreadsheetId: 1LNpGR3MpdaIaoXuP3ciHjPiwDdd_tSto4tsxi8Z7xEc
       write: true
 
+    connections:
+      - id: my_bucket
+        type: AwsS3Bucket
+        properties:
+          accessKeyId: AKIASHGMVCX243FJQ3H7
+           
+          secretAccessKey:
+            _secret: 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
+          region: eu-west-1
+          bucket: my-bucket-name
+          write: true
+
 menus:
   - id: default
     links:

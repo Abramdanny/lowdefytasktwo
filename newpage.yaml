@@ -19,6 +19,19 @@ requests:
         # Add the date the row was created using the `_date.now` operator.
         created_date:
           _date: now
+        
+          requests:
+            - id: my_file_link
+              type: AwsS3PresignedGetObject
+              connectionId: my_bucket_connection
+              properties:
+                key: pdf-filename-as4dacd.pdf
+                responseContentType: application/pdf
+
+        
+
+
+
 
 properties:
   title: New ticket # The title in the browser tab.
@@ -109,3 +122,14 @@ blocks:
               params: save_data
             - id: reset # Reset the form once data has been submitted
               type: Reset
+      - id: getFileButton
+        type: Button
+        events:
+          onClick:
+            - id: open_file
+              type: Link
+              params:
+                url:
+                  _request: my_file_link
+                newTab: true      
+                    
