@@ -1,0 +1,80 @@
+
+lowdefy: 3.23.2
+name: Lowdefy starter
+
+connections:
+  - id: google_sheet
+    type: GoogleSheet
+    properties:
+      client_email: lowdefytasktwo@lowdefytasktwo.iam.gserviceaccount.com
+        
+      private_key: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDUetyU1ty6SvQm\nyFBQQvIGZEI1nfe/aBatIbdnAaaIAPXW5rz1sVqYXncYOLqy9ZGzkiik4uuEcuPT\nwqLFeCCGsXdC5T9KgXVn7+OVBuOW9z/mdvG2vTcDkYEf2sScFlVrVBg5DY5J8YPi\nYBO+29Fr6Ib0vD0GBrjC8+YxxX5ylUpfkytMeyTxMZSmw1Ryd1wyshb4cc4ZqYLN\nGTrcXe0dKm49Cm2FDu9uXPRmeuDWmDJz6A6Gvp7jlAl8XlMdoF6bWFTud08ayr0O\nWOUwzdgIvXaKOXnwyMf/yGqvAkw+L+G2bjVeU0H3G1mpqmGYBbqA7c607CWi0mct\nUbh12HWvAgMBAAECggEAUs6zCpqWGVA+yKKGklEUy6LlHso6lHD3bW/XbyB4i0Z8\niM0R1VrSKNGf7mOldzs3Flme12vMR6kS2yNelkDTxEqDZSG8wcekPuaBtkGiDuK7\nF5FBcGtbdluNjCGRQBeAILz8V7fNvUmPkXjKGTbH7hsIBXca/S8/cFLnYnxKZFLO\nS/zizLcPtGqdXXYpFhjPlaEtD6OE7eioK2MRZX5By/trNl7pCUBXCQvoL9YViOM5\nADyIA5/3z4QjdvluRq6Uv/Pe90lNvHSHbS8eStb8Kw75Au6reJ+Q6BYi3G/yG/4Q\nzQKwutobBdhJLNES+gwu6l85QYZznphq3hsxNMjtQQKBgQD1bO5bN+Vi7Z2Dtb0D\nozBO1Y+uM8o6JafhUeXES4Gbau4OWoLogHZXu1YTDs7iqqgkEy+xObwm574Puxs5\ndpd88syGJMfgffYx+0z/aTBMeakMjhrLKilucjvUioJmgHEUye2BnUQU0mO6sGk3\n/eyui8I88DRpgZEPfY/MFgGY4QKBgQDdoomP6BBTfpa0VlpalvLho30r6Ob/mNIC\nn+xch746FFRrAzvH7jiCHZ+FCtUA8DPVXzD63MVp4us+rDHRX/E4/oxR27vzYYp7\n15gQ3AUImL2X3IzfZR4L6E7THgvx2YcQaJqVm/cm+D3exQgc85o+rdWa4ccRmz77\ngkWnYCYQjwKBgQD1JQe5Sc3w0RQDGadhWMHKHPvVr5mSF0bng9yUBC/DxD1hTPtx\nrc+HtnI1uxbfxkMJNbjvt5G+8sAgCm8ZKOIMRqIQY/DaxjcCmdfBT5qU6Pj4t4D/\n6m9UCPrGREwYgrdxYnnAfAwjGDvRoKCY8yRU/PjZ0b0onej9phfabSjPQQKBgF+3\nRS9n6j0Uy2LgdC7xR71YjMM81x4FUpUdmccwPF/6zaZVhCjI4ZCX2H9teSXplokM\njiuY0ozzGeM8HFuu0o9ppxHnEpl+Q39OUXbefjIDPMXr0s7bbYl47ynPrRrqdaEJ\ne9EmxSsIRDgD4YgXUELHchtsbDtXT3DxBsHNDUNTAoGBAMd0fmg9v9yfKKhSR4ab\n/ekhNoX8OyW2GtFoK+6GmkB/NlylrlD1hDdIpbC0Cp9vs2q5Nk1oqEc7Gn69ymfV\nX9lmD21s6a360G3fIynSVXqwPlDz5FioONexsjGitJ3XMTBJYd+UivSAF0LuJ/Zj\ndt+qTbimEwWKJzt1TQHk4Un8\n-----END PRIVATE KEY-----\n"
+        
+      sheetIndex: 0
+      spreadsheetId: 1LNpGR3MpdaIaoXuP3ciHjPiwDdd_tSto4tsxi8Z7xEc
+      write: true
+
+menus:
+  - id: default
+    links:
+      - id: newpage
+        type: MenuLink
+        properties:
+          icon: AlertOutlined
+          title: New ticket
+        pageId: newpage
+      - id: welcome
+        type: MenuLink
+        properties:
+          icon: HomeOutlined
+          title: Home
+        pageId: welcome
+
+pages:
+  - _ref: newpage.yaml
+  - id: welcome
+    type: PageHeaderMenu
+    properties:
+      title: Welcome
+    areas:
+      content:
+        justify: center
+        blocks:
+          - id: content_card
+            type: Card
+            style:
+              maxWidth: 800
+            blocks:
+              - id: content
+                type: Result
+                properties:
+                  title: Welcome to your Lowdefy app
+                  subTitle: We are excited to see what you are going to build
+                  icon:
+                    name: HeartTwoTone
+                    color: '#f00'
+                areas:
+                  extra:
+                    blocks:
+                      - id: docs_button
+                        type: Button
+                        properties:
+                          size: large
+                          title: Let's build something
+                          color: '#1890ff'
+                        events:
+                          onClick:
+                            - id: link_to_docs
+                              type: Link
+                              params:
+                                url: https://docs.lowdefy.com
+                                newTab: true
+      footer:
+        blocks:
+          - id: footer
+            type: Paragraph
+            properties:
+              type: secondary
+              content: |
+                Made by a Lowdefy 🤖
+
